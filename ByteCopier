@@ -1,0 +1,35 @@
+# StreamTest
+package jrJava.streamTest;
+
+import java.io.*;
+
+public class ByteCopier {
+
+	public static void main(String[] args) throws Exception {
+	
+		FileInputStream fis = new FileInputStream("Sample.txt");
+		FileOutputStream fos = new FileOutputStream("Sample2.txt");
+		
+		byte[] bucket = new byte[500];
+		
+		while(true){
+			int numRead = fis.read(bucket);
+			
+			if(numRead<=0){
+				fis.close();
+				fos.flush();
+				fos.close();
+				
+				break;
+				
+				
+			}
+			
+			fos.write(bucket, 0, numRead);
+			
+			
+		}
+
+	}
+
+}
