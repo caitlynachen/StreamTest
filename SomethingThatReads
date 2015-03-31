@@ -1,0 +1,27 @@
+package jrJava.streamTest;
+
+import java.io.*;
+import java.io.InputStreamReader;
+
+public class SomethingThatReads {
+
+	
+	public static void main(String[] args) throws Exception {
+		
+		FileInputStream fis = new FileInputStream("myFirstText.txt");
+		InputStreamReader isr = new InputStreamReader(fis, "US-ASCII");
+		BufferedReader br = new BufferedReader(isr);
+	
+		while(true){
+
+		String oneLine = br.readLine();
+		if(oneLine==null) break;
+		System.out.println(oneLine);
+		}
+		
+		br.close();
+		
+	}
+	
+
+}
